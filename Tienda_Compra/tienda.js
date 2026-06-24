@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const tituloProducto = document.getElementById('titulo-producto');
     const descProducto = document.getElementById('desc-producto');
 
-    // Listener para cambiar la foto e info dinámicamente
     selectModelo.addEventListener('change', (e) => {
         const info = baseDatosZapatillas[e.target.value];
         if (info) {
@@ -41,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // LÓGICA DE FORMULARIO
     const form = document.getElementById('form-checkout');
     const radiosDestino = document.querySelectorAll('input[name="destino"]');
     const lblNombre = document.getElementById('lbl-nombre');

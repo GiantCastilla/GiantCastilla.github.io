@@ -26,7 +26,7 @@ body {
 
 .layout-tienda {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Mitad y mitad */
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
     max-width: 1100px;
     margin: 0 auto;
@@ -173,11 +173,6 @@ select, input, textarea {
     .layout-tienda { grid-template-columns: 1fr; }
 }
 
-/* ==========================================================================
-   NUEVAS MEJORAS ACADÉMICAS (Basadas en diapositivas de clase)
-   ========================================================================== */
-
-/* ── 1. Estilos para Ventana Flotante / Modal (Sesión 14) ── */
 .ventana-flotante {
     display: none;
     position: fixed;
@@ -194,12 +189,10 @@ select, input, textarea {
     animation: aparecerModal 0.3s ease;
 }
 
-/* Muestra el modal utilizando la pseudo-clase :target explicada en clase */
 .ventana-flotante:target {
     display: block;
 }
 
-/* Fondo oscuro semi-transparente que cubre la pantalla */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -211,7 +204,6 @@ select, input, textarea {
     z-index: 999;
 }
 
-/* Muestra el fondo oscuro cuando el modal está activo (:target) */
 .ventana-flotante:target + .modal-overlay {
     display: block;
 }
@@ -278,7 +270,6 @@ select, input, textarea {
     text-decoration: underline;
 }
 
-/* ── 2. Estilos para Ticket de Compra Dinámico (Sesión 13 - createElement) ── */
 .ticket-compra {
     background-color: #fff;
     color: #333;

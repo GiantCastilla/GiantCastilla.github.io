@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-    // ── 1. Animación de scroll para secciones ────────────────────────────
     const bloques = document.querySelectorAll('.animar-scroll');
-
     const observador = new IntersectionObserver((entradas) => {
         entradas.forEach(entrada => {
             if (entrada.isIntersecting) {
@@ -13,10 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bloques.forEach(bloque => observador.observe(bloque));
 
-
-    // ── 2. Animación de entrada para la sección promo ────────────────────
     const seccionPromo = document.querySelector('.seccion-promo');
-
     if (seccionPromo) {
         const observadorPromo = new IntersectionObserver((entradas) => {
             entradas.forEach(entrada => {
@@ -30,15 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
         observadorPromo.observe(seccionPromo);
     }
 
-
-    // ── 3. Menú hamburguesa responsivo ───────────────────────────────────
-    //  Basado en classList.toggle (igual que los apuntes del curso)
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
 
     if (menuToggle && navMenu) {
-
-        // Al hacer clic cambia entre barras ☰ y X según el estado
         menuToggle.onclick = function () {
             navMenu.classList.toggle('activo');
 
@@ -50,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        // Cerrar menú automáticamente al hacer clic en cualquier enlace
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('activo');
@@ -59,8 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
-    // ── 4. Sombra en el header al hacer scroll ───────────────────────────
     const header = document.querySelector('header');
 
     window.addEventListener('scroll', () => {
@@ -71,8 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-
-    // ── 5. Botón "volver arriba" ─────────────────────────────────────────
     const btnTop = document.getElementById('btn-top');
 
     if (btnTop) {
@@ -89,28 +73,19 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-
-    // ── 6. Formulario de contacto con mensaje de éxito (JS) ──────────────
     const formContacto = document.getElementById('form-contacto');
     const msgExito = document.getElementById('msg-exito');
 
     if (formContacto && msgExito) {
 
         formContacto.addEventListener('submit', function (e) {
-            e.preventDefault(); // Evitar que recargue la página
-
-            // --- INTEGRACIÓN SESIÓN 11: Acceso por atributo 'name' ---
+            e.preventDefault();
             const nombre = document.formularioContacto.nombre.value;
-
-            // Insertar mensaje dinámico con el nombre del usuario
             msgExito.innerHTML =
                 '<i class="fa-solid fa-circle-check"></i> ¡Gracias, <strong>' +
                 nombre + '</strong>! Tu mensaje fue recibido. Te contactaremos pronto.';
-
             msgExito.classList.add('mostrar');
             formContacto.reset();
-
-            // Ocultar mensaje después de 5 segundos
             setTimeout(function () {
                 msgExito.classList.remove('mostrar');
             }, 5000);
